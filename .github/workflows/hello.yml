@@ -1,16 +1,24 @@
 name: Hello World Workflow
 
 on:
- push:
-  branch:[master]
+  push:
+    branches: [ main ]
 
 jobs:
- say-hello:
-    run-on: ubuntu-latest
-
+  run-python:
+    runs-on: ubuntu-latest
+    
     steps:
-     - name: Print a Message
-       run : echo "helllo form git hub action"
-
-     - name: Print another message
-       run : echo "This is my first workflow"
+      # Get your code
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      # Run your script
+      - name: Run Python script
+        run: python hello.py
