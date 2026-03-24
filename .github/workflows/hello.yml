@@ -12,3 +12,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: python hello.py
+      - run: python newFile.py
