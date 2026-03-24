@@ -1,0 +1,16 @@
+name: Hello World Workflow
+
+on:
+ push:
+  branch:[master]
+
+jobs:
+ say-hello:
+    run-on: ubuntu-latest
+
+    steps:
+     - name: Print a Message
+       run : echo "helllo form git hub action"
+
+     - name: Print another message
+       run : echo "This is my first workflow"
